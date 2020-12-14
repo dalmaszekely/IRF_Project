@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        FLOWERSEntities2 context = new FLOWERSEntities2();
 
         public Form1()
         {

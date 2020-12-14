@@ -56,6 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FLOWER.cs">
+      <DependentUpon>FlowerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FlowerModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlowerModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FlowerModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlowerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FlowerModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlowerModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Flowers.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -77,6 +95,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="FlowerModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FlowerModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="FlowerModel.edmx.diagram">
+      <DependentUpon>FlowerModel.edmx</DependentUpon>
+    </None>
     <None Include="flowers.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -96,6 +121,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FlowerModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FlowerModel.edmx</DependentUpon>
+      <LastGenOutput>FlowerModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FlowerModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FlowerModel.edmx</DependentUpon>
+      <LastGenOutput>FlowerModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
