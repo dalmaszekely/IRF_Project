@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             LoadFlowers();
+            SearchFlowers();
         }
 
         private List<Flowers> _flowers = new List<Flowers>();
@@ -44,8 +45,20 @@ namespace WindowsFormsApp1
             }
         }
 
+        public void SearchFlowers()
+        {
+            string searchValue = textBox1.Text.ToLower();
+
+            var flowers = (from x in context.FLOWERS
+                           where x.FlowerName.Contains(searchValue)
+                           select x.FlowerName).ToList();
+
+            listBox1.DataSource = flowers.ToList();
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            SearchFlowers();
         }
     }
 }
