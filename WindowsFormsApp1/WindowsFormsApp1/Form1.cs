@@ -13,11 +13,11 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
             LoadFlowers();
-            SearchFlowers();
         }
 
         private List<Flowers> _flowers = new List<Flowers>();
@@ -43,9 +43,8 @@ namespace WindowsFormsApp1
             }
         }
 
-        public void SearchFlowers()
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
         }
     }
 }
