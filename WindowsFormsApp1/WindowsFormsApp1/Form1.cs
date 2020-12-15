@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             LoadFlowers();
             SearchFlowers();
+            ApplyDesign();
         }
 
         private List<Flowers> _flowers = new List<Flowers>();
@@ -38,11 +39,22 @@ namespace WindowsFormsApp1
                     f.FlowerType = line[0];
                     f.Area = line[1];
                     _flowers.Add(f);
-                    chart1.Series["Flowers"].Points.AddXY(line[0], line[1]);
+
+                    FillChart(line[0], line[1]);
                 }
-                dataGridView1.DataSource = _flowers;
-                chart1.Titles.Add("Area used for the production of flower bulbs in the Netherlands in 2019, by flower type");
+                FillDataGridView(_flowers);
             }
+        }
+
+        public void FillChart(string x, string y)
+        {
+            chart1.Series["Flowers"].Points.AddXY(x, y);
+        }
+
+        public void FillDataGridView(object flowers)
+        {
+
+            dataGridView1.DataSource = flowers;
         }
 
         public void SearchFlowers()
@@ -54,6 +66,11 @@ namespace WindowsFormsApp1
                            select x.FlowerName).ToList();
 
             listBox1.DataSource = flowers.ToList();
+        }
+
+        public void ApplyDesign()
+        {
+            chart1.Titles.Add("Area used for the production of flower bulbs in the Netherlands in 2019, by flower type");
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
