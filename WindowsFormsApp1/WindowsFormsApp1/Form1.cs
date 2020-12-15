@@ -77,5 +77,37 @@ namespace WindowsFormsApp1
         {
             SearchFlowers();
         }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Pen greenPen = new Pen(Color.ForestGreen);
+            Pen pinkPen = new Pen(Color.DeepPink);
+            Brush myBrush = new SolidBrush(Color.Pink);
+
+            // Stem
+            g.DrawLine(greenPen, 200, 500, 200, 600);
+
+            // Leaves
+            Rectangle bottomLeaf = new Rectangle(150, 500, 100, 100);
+            g.DrawArc(greenPen, bottomLeaf, 0, 90);
+
+            Rectangle topLeaf = new Rectangle(200, 550, 100, 100);
+            g.DrawArc(greenPen, topLeaf, 180, 90);
+
+            // Flower
+            Rectangle bottomOutline = new Rectangle(175, 400, 50, 100);
+            g.DrawArc(pinkPen, bottomOutline, 0, 180);
+
+            Rectangle rightPetal = new Rectangle(200, 450, 50, 100);
+            g.DrawArc(pinkPen, rightPetal, 180, 90);
+
+            Rectangle leftPetal = new Rectangle(150, 450, 50, 100);
+            g.DrawArc(pinkPen, leftPetal, 270, 90);
+
+            Rectangle bottomPetal = new Rectangle(190, 450, 20, 50);
+            g.DrawArc(pinkPen, bottomPetal, 270, 180);
+            g.DrawArc(pinkPen, bottomPetal, 90, 180);
+        }
     }
 }
