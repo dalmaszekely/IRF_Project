@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
             LoadFlowers();
             SearchFlowers();
             ApplyDesign();
+            AddMost();
         }
 
         private List<Flowers> _flowers = new List<Flowers>();
@@ -108,6 +109,23 @@ namespace WindowsFormsApp1
             Rectangle bottomPetal = new Rectangle(190, 450, 20, 50);
             g.DrawArc(pinkPen, bottomPetal, 270, 180);
             g.DrawArc(pinkPen, bottomPetal, 90, 180);
+        }
+
+        public void AddMost()
+        {
+            Second second = new Second();
+            second.Text = second.second();
+            second.ForeColor = Color.Orange;
+            second.BackColor = Color.Transparent;
+
+            Controls.Add(second);
+
+            Third third = new Third();
+            third.Text = third.third();
+            third.ForeColor = Color.White;
+            third.BackColor = Color.Transparent;
+
+            Controls.Add(third);
         }
     }
 }
