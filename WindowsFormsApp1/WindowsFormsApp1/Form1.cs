@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+
             LoadFlowers();
             SearchFlowers();
             ApplyDesign();
@@ -54,7 +55,6 @@ namespace WindowsFormsApp1
 
         public void FillDataGridView(object flowers)
         {
-
             dataGridView1.DataSource = flowers;
         }
 
@@ -84,7 +84,6 @@ namespace WindowsFormsApp1
             Graphics g = e.Graphics;
             Pen greenPen = new Pen(Color.ForestGreen);
             Pen pinkPen = new Pen(Color.DeepPink);
-            Brush myBrush = new SolidBrush(Color.Pink);
 
             // Stem
             g.DrawLine(greenPen, 200, 500, 200, 600);
